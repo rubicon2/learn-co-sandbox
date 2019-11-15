@@ -38,34 +38,56 @@ function find(array, criteriaFn) {
     }
     
     // This line removes the first element from next[] and "gives" it to current. 
+    if(Array.isArray(current)) {
+      for(let i = 0; i < current.length; i++) {
+        next.push(current[i]);
+      }
+    }
     current = next.shift(); 
   }
   return null; 
 }
 
 // NESTED OBJECTS
-var test2 = { beans: "baked", potatoes: "crispy"}; 
-var criteria2 = "beans"; 
+var shop = { type: "technology", opens: "0900", closes: "1700", 
+            employees: [{ name: "Jimmy Bobby", position: "Vice President", age: 71 }, 
+                        { name: "Sandra Jameson", position: "Vice President", age: 23 }, 
+                        { name: "Billy Jimbo", position: "Turnip Supervisor", age: 34}]}; 
+var criteria2 = "Billy Jimbo"; 
 
-function find2(array, criteriaFn) {
+function find2(object, criteriaFn) {
   
-  // Arrays can have a mix of types, so basically add all array elements/objects to this array. 
-  let current = array;
-  let next = []; 
+  // Unpack all arrays and objects into the following arrays...
+  let keys = [];
+  let values = [];
   
   // I.e. while current is not null/undefined etc. 
   while(current || current === 0) {
     
-    if(criteriaFn === current) {
-      return current; 
-    }
-    
     // Need to iterate over object properties and add to next[]. 
     // Need separate arrays for keys and values? 
+    // If it's a regular array, just add to the values array and stick something in 
+    // the keys array so we know we want to be matching the value, not the key. 
+    // Duplicate keys not possible tho! 
     
-    current = next.shift(); 
   }
   return null; 
 }
 
-console.log(find(test, criteria)); 
+// Gets keys from the top level of an object only. 
+function getKeys(object) {
+  let keys = [];
+  for(let key in object) {
+    keys.push(key);
+  }
+  return keys; 
+}
+
+// Gets keys from all levels of an object. 
+function getAllKeys(object) {
+  let objects = []; 
+}
+
+console.log(find(shop, criteria2)); 
+console.log(getKeys(shop)); 
+console.log(shop.employees[0]); 
