@@ -6,22 +6,29 @@
  * LET'S SEE SHALL WE?!
  */
 
+<<<<<<< HEAD
 // NESTED ARRAYS
 var test = [["brie", "camembert"], ["heinz beans", "branston beans"]]; 
 var criteria = "brie";
 
+=======
+>>>>>>> 7d0dacae0e16370fd1e1a10f9f04d1e31ef9b4e0
 function find(array, criteriaFn) {
   
   let current = array;
   let next = []; 
   
+<<<<<<< HEAD
   // I.e. while current is not null/undefined etc. 
+=======
+>>>>>>> 7d0dacae0e16370fd1e1a10f9f04d1e31ef9b4e0
   while(current || current === 0) {
     
     if(criteriaFn === current) {
       return current; 
     }
     
+<<<<<<< HEAD
     // If current object we're looking at is an array... 
     if(Array.isArray(current)) {
       // Go through all the elements...
@@ -43,11 +50,20 @@ function find(array, criteriaFn) {
         next.push(current[i]);
       }
     }
+=======
+    if(Array.isArray(current)) {
+      for(let i = 0; i < current.length; i++) {
+        next.push(current[i]);
+      }
+    }
+    
+>>>>>>> 7d0dacae0e16370fd1e1a10f9f04d1e31ef9b4e0
     current = next.shift(); 
   }
   return null; 
 }
 
+<<<<<<< HEAD
 // NESTED OBJECTS
 var shop = { type: "technology", opens: "0900", closes: "1700", 
             employees: [{ name: "Jimmy Bobby", position: "Vice President", age: 71 }, 
@@ -91,3 +107,9 @@ function getAllKeys(object) {
 console.log(find(shop, criteria2)); 
 console.log(getKeys(shop)); 
 console.log(shop.employees[0]); 
+=======
+var test = [["brie", "camembert"], ["heinz beans", "branston beans"]]; 
+var criteria = "brie"; 
+
+console.log(find(test, criteria)); 
+>>>>>>> 7d0dacae0e16370fd1e1a10f9f04d1e31ef9b4e0
